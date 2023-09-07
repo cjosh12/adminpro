@@ -7,6 +7,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { LoginFormComponent } from './components';
 import { BtnComponent, EyeBtnComponent } from '@shared/components';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { BtnComponent, EyeBtnComponent } from '@shared/components';
     BtnComponent,
     EyeBtnComponent,
     FontAwesomeModule,
+    ReactiveFormsModule,
   ]
 })
 export class LoginModule { }

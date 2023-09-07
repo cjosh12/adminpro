@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()" autocomplete="off">
   <div class="mb-4">
     <div class="form-control w-full mt-4">
       <label Name="label" for="email">Correo Electrónico</label>
@@ -8,7 +8,7 @@
       id = "email" 
       formControlName="email"
       />
-      <label class="label" *ngIf="loginForm.control['email'].touched">
+      <label class="label" *ngIf="loginForm.controls['email'].touched">
         <span *ngIf="!loginForm.controls['email'].valid" class="label-text-alt text-error">campo incorrecto</span>
       </label>
     </div>
@@ -21,7 +21,7 @@
         id="password"
         formControlName="password"
       />
-      <label class="label" *ngIf="loginForm.control['password'].touched">
+      <label class="label" *ngIf="loginForm.controls['password'].touched">
         <span *ngIf="!loginForm.controls['password'].valid" class="label-text-alt text-error">campo incorrecto</span>
       </label>
         <shared-eye-btn  />
