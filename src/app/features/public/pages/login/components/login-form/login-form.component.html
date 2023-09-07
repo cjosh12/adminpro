@@ -1,16 +1,29 @@
 <form>
   <div class="mb-4">
     <div class="form-control w-full mt-4">
-      <label Name="label">Correo Electrónico</label>
-      <input class="input input-bordered w-full" type="text" />
+      <label Name="label" for="email">Correo Electrónico</label>
+      <input 
+      class="input input-bordered w-full" 
+      type="email"
+      id = "email" 
+      formControlName="email"
+      />
+      <label class="label" *ngIf="loginForm.control['email'].touched">
+        <span *ngIf="!loginForm.controls['email'].valid" class="label-text-alt text-error">campo incorrecto</span>
+      </label>
     </div>
     <div class="form-control w-full mt-4">
       <label Name="label">Contraseña</label>
       <div class="relative">
         <input
-          class="input input-bordered w-full"
-          [type]="showPassword() ? 'text' : 'password'"
-        />
+        class="input input-bordered w-full"
+        [type]="showPassword() ? 'text' : 'password'"
+        id="password"
+        formControlName="password"
+      />
+      <label class="label" *ngIf="loginForm.control['password'].touched">
+        <span *ngIf="!loginForm.controls['password'].valid" class="label-text-alt text-error">campo incorrecto</span>
+      </label>
         <shared-eye-btn  />
       </div>
     </div>
