@@ -5,6 +5,7 @@ import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
 import { RegisterFormComponent } from './components';
 import { BtnComponent, EyeBtnComponent } from '@shared/components';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { BtnComponent, EyeBtnComponent } from '@shared/components';
     RegisterRoutingModule,
     EyeBtnComponent,
     BtnComponent,
+    ReactiveFormsModule,
   ]
 })
 export class RegisterModule { }

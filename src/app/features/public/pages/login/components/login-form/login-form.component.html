@@ -9,7 +9,8 @@
       formControlName="email"
       />
       <label class="label" *ngIf="loginForm.controls['email'].touched">
-        <span *ngIf="!loginForm.controls['email'].valid" class="label-text-alt text-error">campo incorrecto</span>
+        <span *ngIf="!loginForm.controls['email'].valid" 
+        class="label-text-alt text-error">campo incorrecto</span>
       </label>
     </div>
     <div class="form-control w-full mt-4">
