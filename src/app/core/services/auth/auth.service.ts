@@ -14,7 +14,7 @@ export class AuthService {
   sendLogin(loginForm: LoginForm): Observable<object> {
     return this.apiService.store('auth/login', loginForm)
     .pipe(
-      catchError((error) => throwError(() => error.message))
+      catchError((error) => throwError(() => error.error.message))
     );
   }
 

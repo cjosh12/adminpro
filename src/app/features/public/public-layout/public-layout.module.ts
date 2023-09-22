@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PublicLayoutRoutingModule } from './public-layout-routing.module';
 import { PublicLayoutComponent } from './public-layout.component';
+import { ToastComponent } from '@shared/components/toast/toast.component';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { PublicLayoutComponent } from './public-layout.component';
   ],
   imports: [
     CommonModule,
-    PublicLayoutRoutingModule
+    PublicLayoutRoutingModule,
+    ToastComponent
   ]
 })
 export class PublicLayoutModule { }

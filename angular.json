@@ -72,6 +72,7 @@
               "browserTarget": "admin-pro:build:development"
             }
           },
+          
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
