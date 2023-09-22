@@ -1,8 +1,7 @@
 <button
   [type]="type"
-  class="btn {{ outline ? 'btn-outline' : '' }} mt-8 w-full"
-  [ngClass]="colors"
-  [disabled]="btnDisabled"
+  class="btn mt-8 w-full"
+  [ngClass]="styles"
 >
   <ng-content />
 </button>

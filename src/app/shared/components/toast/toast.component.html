@@ -1,9 +1,21 @@
-<div class="toast toast-end" [ngClass]="fadeOut() ? 'animate__animated fadeOut' : ''" *ngIf="isActive$()">
-    <div class="alert" [ngClass]="toastConfig$().color">
-      <fa-icon [icon]="toastConfig$().icon" />
-      <span>{{ toastConfig$().message }}</span>
-      <div>
-        <shared-circle-btn (click)="closeToast()"/>
-      </div>
-    </div>
+<div
+class="toast toast-end {{
+  isActive$()
+    ? 'animate__animated animate__fadeIn'
+    : 'animate__animated animate__fadeOut'
+}}"
+>
+<div class="alert" [ngClass]="styles">
+  <fa-icon [icon]="toastConfig$().icon" />
+  <span>{{ toastConfig$().message }}</span>
+  <div>
+    <shared-circle-btn
+      [color]="'accent'"
+      [size]="'xs'"
+      (click)="closeToast()"
+    >
+      <fa-icon [icon]="faX()" />
+    </shared-circle-btn>
   </div>
+</div>
+</div>

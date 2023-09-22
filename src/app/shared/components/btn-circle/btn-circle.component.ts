@@ -1,14 +1,27 @@
-import { Component, signal } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { IconDefinition, faX } from '@fortawesome/free-solid-svg-icons';
+
+import { ButtonColor, Size } from '@core/models';
 
 @Component({
   selector: 'shared-circle-btn',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule],
   templateUrl: './btn-circle.component.html'
 })
 export class BtnCircleComponent {
-  public faX = signal<IconDefinition>(faX);
+  @Input()
+  public color: ButtonColor = 'primary';
+  @Input()
+  public outline = false;
+  @Input()
+  public size:Size = 'md';
+
+  get styles() {
+    return {
+      [`btn-${this.color}`]: true,
+      [`btn-${this.size}`]: true,
+      'btn-outline': this.outline,
+    };
+  }
 }

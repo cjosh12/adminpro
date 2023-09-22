@@ -1,4 +1,4 @@
-<form [formGroup]="registerForm" (ngSubmit)="onRegsiter"  autocomplete="off">
+<form>
   <div class="mb-4">
     <div class="form-control w-full mt-4">
       <label Name="label">Nombres</label>
@@ -10,15 +10,7 @@
     </div>
     <div class="form-control w-full mt-4">
       <label Name="label">Correo Electrónico</label>
-      <input 
-      class="input input-bordered w-full" 
-      type="text" 
-      />
-      <label class="label" *ngIf="registerForm.controls['email'].touched">
-        <span 
-        *ngIf="!registerForm.controls['email'].valid" 
-        class="label-text-alt text-error">campo incorrecto</span>
-      </label>
+      <input class="input input-bordered w-full" type="text" />
     </div>
     <div class="form-control w-full mt-4">
       <label Name="label">Contraseña</label>
@@ -27,11 +19,6 @@
           class="input input-bordered w-full"
           [type]="showPassword() ? 'text' : 'password'"
         />
-        <label class="label" *ngIf="registerForm.controls['password'].touched">
-          <span 
-          *ngIf="!registerForm.controls['password'].valid" 
-          class="label-text-alt text-error">campo incorrecto</span>
-        </label>
         <shared-eye-btn  />
       </div>
     </div>
