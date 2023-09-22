@@ -28,7 +28,7 @@ export class LoginFormComponent {
 
 
   public onLogin():void {
-    this.authService.sendLogin(this.loginForm.value)
+    this.authService.login(this.loginForm.value)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: () => this.router.navigateByUrl('/dashboard'),

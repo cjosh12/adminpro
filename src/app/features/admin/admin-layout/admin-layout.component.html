@@ -4,7 +4,15 @@
       <div class="drawer-content flex flex-col">
         <admin-header />
         <main class="flex-1 overflow-y-auto pt-8 px-6 bg-base-200">
-          <div class="h-16"></div>
+          <div class="h-16">
+            <h3>User</h3>
+        <pre>
+          {{ user() | json }}
+        </pre>
+            <button class="btn btn-primary" (click)="onLogout()">
+              Salir
+            </button>
+          </div>
         </main>
   </div>
   <admin-sidebar/>
