@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { privateGuard, publicGuard } from './core';
 
 const routes: Routes = [
     {
-        path:'',
+      path: 'auth',
+      canActivate: [publicGuard],
         loadChildren:() => import('@features/public').then(m => m.PublicModule),
     },
     {
         path: 'dashboard',
+        canActivate: [privateGuard],
         loadChildren: () => import('@features/admin').then(m => m.AdminModule),
       },
       {

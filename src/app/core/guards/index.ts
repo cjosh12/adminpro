@@ -1,2 +1,2 @@
-export * from './is-authenticated.guard';
-export * from './is-not-authenticated.guard';
+export * from './private.guard';
+export * from './public.guard';
