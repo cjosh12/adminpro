@@ -18,9 +18,15 @@ const routes: Routes = [
         loadComponent: () => import('@shared/pages').then(c => c.NotFoundComponent),
       },
       {
+        path: '',
+        redirectTo: '/auth',
+        pathMatch: 'full'
+      },
+      {
         path: '**',
         redirectTo: '404'
       }
+
 ];
 
 @NgModule({

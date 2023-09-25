@@ -19,8 +19,6 @@ export class AppComponent {
   });
 
   public authStatusChangedEffect = effect(() => {
-    console.log(`authStatus: ${this.authService.authStatus()}`);
-
     switch(this.authService.authStatus()) {
       case 'checking':
         return;
@@ -30,8 +28,8 @@ export class AppComponent {
         return;
 
       case 'noAuthenticated':
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/auth');
         return;
     }
-  })
+  });
 }
