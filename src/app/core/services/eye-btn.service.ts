@@ -1,13 +1,15 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, computed, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EyeBtnService {
 
-  public showEye = signal<boolean>(false);
+  private _showEye = signal<boolean>(false);
+
+  public showEye = computed(()=>this._showEye());
 
   public toggleEye() {
-    this.showEye.set(!this.showEye())
+    this._showEye.set(!this._showEye())
   }
 }

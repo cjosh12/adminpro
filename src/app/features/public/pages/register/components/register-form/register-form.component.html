@@ -1,16 +1,31 @@
-<form>
+<form [formGroup]="registerForm" (ngSubmit)="onRegister()">
   <div class="mb-4">
     <div class="form-control w-full mt-4">
       <label Name="label">Nombres</label>
-      <input class="input input-bordered w-full" type="text" />
+      <input
+        class="input input-bordered w-full"
+        type="text"
+        id="first_name"
+        formControlName="first_name"
+      />
     </div>
     <div class="form-control w-full mt-4">
       <label Name="label">Apellidos</label>
-      <input class="input input-bordered w-full" type="text" />
+      <input
+        class="input input-bordered w-full"
+        type="text"
+        id="last_name"
+        formControlName="last_name"
+      />
     </div>
     <div class="form-control w-full mt-4">
       <label Name="label">Correo Electrónico</label>
-      <input class="input input-bordered w-full" type="text" />
+      <input
+        class="input input-bordered w-full"
+        type="email"
+        id="email"
+        formControlName="email"
+      />
     </div>
     <div class="form-control w-full mt-4">
       <label Name="label">Contraseña</label>
@@ -18,16 +33,25 @@
         <input
           class="input input-bordered w-full"
           [type]="showPassword() ? 'text' : 'password'"
+          id="password"
+          formControlName="password"
         />
-        <shared-eye-btn  />
+        <shared-eye-btn/>
       </div>
     </div>
     <div class="form-control w-full mt-4">
       <label Name="label">Repetir contraseña</label>
-      <input class="input input-bordered w-full" type="password" />
+      <input
+          class="input input-bordered w-full"
+          type="password"
+          id="valid-password"
+          formControlName="valid-password"
+        />
     </div>
   </div>
-  <shared-btn [type]="'submit'">Registrarse</shared-btn>
+  <shared-btn [type]="'submit'" [btnDisabled]="!registerForm.valid"
+  >Registrarse</shared-btn
+>
   <div class="text-center mt-4">
     ¿Ya tiene una cuenta?
     <span

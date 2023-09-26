@@ -6,6 +6,7 @@ import { RegisterComponent } from './register.component';
 import { RegisterFormComponent } from './components';
 import { BtnComponent, EyeBtnComponent } from '@shared/components';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CustomLabelDirective } from '@shared/directives';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     EyeBtnComponent,
     BtnComponent,
     ReactiveFormsModule,
+    CustomLabelDirective,
   ]
 })
 export class RegisterModule { }

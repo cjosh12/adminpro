@@ -4,7 +4,7 @@ import { privateGuard, publicGuard } from './core';
 
 const routes: Routes = [
     {
-      path: 'auth',
+      path: '',
       canActivate: [publicGuard],
         loadChildren:() => import('@features/public').then(m => m.PublicModule),
     },
@@ -17,11 +17,7 @@ const routes: Routes = [
         path: '404',
         loadComponent: () => import('@shared/pages').then(c => c.NotFoundComponent),
       },
-      {
-        path: '',
-        redirectTo: '/auth',
-        pathMatch: 'full'
-      },
+
       {
         path: '**',
         redirectTo: '404'
