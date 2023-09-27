@@ -54,5 +54,37 @@ export class CustomLabelDirective {
         'Este campo debe ser un correo electrónico valido.';
       return;
     }
+
+    if(errors.includes('minlength')){
+      const {requiredLength} = this._errors['minlength'];
+      this.htmlElemnt.nativeElement.innerText =
+        `este campo debe tener mínimo ${requiredLength} caracteres`;
+      return;
+    }
+
+    if(errors.includes('maxlength')){
+      const {requiredLength} = this._errors['maxlength'];
+      this.htmlElemnt.nativeElement.innerText =
+        `este campo debe tener máximo ${requiredLength} caracteres`;
+      return;
+    }    
+
+    if (errors.includes('pattern')) {
+      const { requiredPattern } = this._errors['pattern'];
+      let message = '';
+
+      switch (requiredPattern) {
+        case '/(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$/':
+          message =
+            'El campo debe tener al menos una mayúscula, una minúscula, un número y un carácter especial';
+          break;
+
+        default:
+          break;
+      }
+
+      this.htmlElemnt.nativeElement.innerText = message;
+      return;
+    }
   }
 }
