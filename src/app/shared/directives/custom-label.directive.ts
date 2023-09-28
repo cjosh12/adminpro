@@ -74,7 +74,7 @@ export class CustomLabelDirective {
       let message = '';
 
       switch (requiredPattern) {
-        case '/(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$/':
+        case '/(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^.*/_-&+=!]).{8,}$/':
           message =
             'El campo debe tener al menos una mayúscula, una minúscula, un número y un carácter especial';
           break;

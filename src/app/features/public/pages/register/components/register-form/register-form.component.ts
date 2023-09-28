@@ -52,11 +52,21 @@ export class RegisterFormComponent {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: ({message}) => {
-          this.toastService.show('success',message, faCheckCircle);
+          this.toastService.show({
+            color: 'error',
+            message,
+            icon: faCircleXmark,
+            duration: 15000,
+          });
           this.router.navigateByUrl('/');
         },
         error: (message) => {
-          this.toastService.show('error', message,faCircleXmark)
+          this.toastService.show({
+            color: 'error',
+            message,
+            icon: faCircleXmark,
+            duration: 15000,
+          });
         }
       })
     }

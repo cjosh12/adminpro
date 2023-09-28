@@ -5,6 +5,7 @@ import { IconDefinition, faX } from '@fortawesome/free-solid-svg-icons';
 
 import { ToastService } from '@core/services';
 import { BtnCircleComponent } from '../btn-circle';
+import { ALERT_COLORS } from '@core/models';
 
 @Component({
   selector: 'shared-toast',
@@ -16,17 +17,26 @@ import { BtnCircleComponent } from '../btn-circle';
 export class ToastComponent {
   private toastService = inject(ToastService);
 
-  public isActive$ = computed(() => this.toastService.isActive$());
-  public toastConfig$ = computed(() => this.toastService.toastConfig$());
+  public toastData = computed(() => this.toastService.toastData());
   public faX = signal<IconDefinition>(faX);
 
-  closeToast(): void {
+  private mapColors = ALERT_COLORS;
+
+  public isToastVisible = computed<boolean>(() => {
+    if (this.toastService.toastData()) return true;
+
+    return false;
+  });
+
+  hideToast(): void {
     this.toastService.hide();
   }
 
   get styles() {
-    return {
-      [`alert-${this.toastConfig$().color}`]: true,
+    const colors = this.mapColors[this.toastService.toastData()!.color]
+    if (colors) {
+      return colors
     };
+    return {}
   }
 }

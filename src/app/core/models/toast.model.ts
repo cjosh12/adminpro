@@ -5,4 +5,5 @@ export interface Toast {
     color: AlertColor;
     message: string;
     icon: IconDefinition;
+    duration: number;
 }

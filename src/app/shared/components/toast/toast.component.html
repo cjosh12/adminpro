@@ -1,18 +1,15 @@
 <div
-class="toast toast-end {{
-  isActive$()
-    ? 'animate__animated animate__fadeIn'
-    : 'animate__animated animate__fadeOut'
-}}"
+  class="toast toast-end"
+  *ngIf="isToastVisible()"
 >
 <div class="alert" [ngClass]="styles">
-  <fa-icon [icon]="toastConfig$().icon" />
-  <span>{{ toastConfig$().message }}</span>
+  <fa-icon [icon]="toastData()!.icon" />
+    <span>{{ toastData()?.message }}</span>
   <div>
     <shared-circle-btn
       [color]="'accent'"
       [size]="'xs'"
-      (click)="closeToast()"
+      (click)="hideToast()"
     >
       <fa-icon [icon]="faX()" />
     </shared-circle-btn>

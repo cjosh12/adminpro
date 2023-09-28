@@ -2,7 +2,7 @@ import { Component, DestroyRef, computed, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { faCircleXmark } from '@fortawesome/free-regular-svg-icons'
+import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 
 import { EyeBtnService, ToastService } from '@core/services';
 import { AuthService } from '@features/public';
@@ -26,17 +26,22 @@ export class LoginFormComponent {
     password: ['', [Validators.required]],
   });
 
-
-  public onLogin():void {
-    if (this.loginForm.valid){
-      this.authService.login(this.loginForm.value)
+  public onLogin(): void {
+    if (this.loginForm.valid) {
+      this.authService
+        .login(this.loginForm.value)
         .pipe(takeUntilDestroyed(this.destroyRef))
         .subscribe({
           next: () => this.router.navigateByUrl('/dashboard'),
           error: (message) => {
-            console.log(message)
-            this.toastService.show('error',message,faCircleXmark);
-          }
+            console.log(message);
+            this.toastService.show({
+              color: 'error',
+              message,
+              icon: faCircleXmark,
+              duration: 4000,
+            });
+          },
         });
     }
   }
