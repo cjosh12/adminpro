@@ -3,7 +3,39 @@
       <label
         htmlFor="left-sidebar-drawer"
         class="btn btn-primary drawer-button lg:hidden"
-      ></label>
+      >
+        <fa-icon [icon]="faBars()" class="inline-block"/>
+    </label>
       <h1 class="text-2xl font-semibold ml-2">Page Title</h1>
+    </div>
+    <div>
+      <label class="swap swap-rotate">
+        <input type="checkbox"/>
+  
+        <fa-icon [icon]="faSun()" class="swap-on fill-current w-6 h-6"/>
+        <fa-icon [icon]="faMoon()" class="swap-off fill-current w-6 h-6"/>  
+      </label>
+      <div class="dropdown dropdown-end ml-4">
+        <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+          <div class="w-10 rounded-full">
+            <img
+            src="https://pixabay.com/get/g9f6c24920384ad3de207e98aa5965179ec62594b70a9639930b58b6ff7a4ed44805dd3e7d48cbdb6dea5c8832c398380c9a7cc2cc6c263a7dbe62f1d17ee60fff593f739c8e1a35c0116fc921f541760_640.png"
+            alt="profile"
+            />
+          </div>
+        </label>
+        <ul
+          tabindex="0"
+          class="menu dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          >
+          <li class="justify-between">
+            <button>Perfil</button>
+          </li>
+          <div class="divider mt-0 mb-0"></div>
+          <li>
+            <button (click)="onLogout()">cerrar sesión</button>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>

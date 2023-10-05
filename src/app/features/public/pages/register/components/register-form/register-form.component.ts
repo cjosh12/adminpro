@@ -10,7 +10,7 @@ import { faCheckCircle, faCircleXmark } from '@fortawesome/free-regular-svg-icon
 
 @Component({
   selector: 'register-form',
-  template: './register-form.component.html',
+  templateUrl: './register-form.component.html',
 })
 export class RegisterFormComponent {
   private eyeBtnService = inject(EyeBtnService);
@@ -34,7 +34,7 @@ export class RegisterFormComponent {
           Validators.minLength(6),
           Validators.maxLength(50),
           Validators.pattern(
-            /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$/
+            /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%.-^&+=!]).{8,}$/
           ),
         ],
       ],
@@ -53,7 +53,7 @@ export class RegisterFormComponent {
       .subscribe({
         next: ({message}) => {
           this.toastService.show({
-            color: 'error',
+            color: 'success',
             message,
             icon: faCircleXmark,
             duration: 15000,

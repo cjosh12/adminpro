@@ -9,9 +9,4 @@ export class AdminLayoutComponent {
   private authService = inject(AuthService);
 
   public user = computed(()=>this.authService.CurrentUser());
-
-  onLogout():void {
-    this.authService.logout();
-
-  }
 }

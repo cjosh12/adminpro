@@ -10,6 +10,7 @@ import {
   BreadcrumsComponent,
   SidebarComponent
 } from './components';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {
   ],
   imports: [
     CommonModule,
-    AdminLayoutRoutingModule
+    AdminLayoutRoutingModule,
+    FontAwesomeModule
   ]
 })
 export class AdminLayoutModule { }
