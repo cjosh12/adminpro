@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { IconDefinition, faX } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'admin-sidebar',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   ]
 })
 export class SidebarComponent {
-
+  public faX = signal<IconDefinition>(faX);
 }

@@ -12,7 +12,7 @@ import { ALERT_COLORS } from '@core/models';
   standalone: true,
   imports: [CommonModule, FontAwesomeModule, BtnCircleComponent],
   templateUrl: './toast.component.html',
-  styleUrls: ['./toast.component.css'],
+  styleUrls: [],
 })
 export class ToastComponent {
   private toastService = inject(ToastService);

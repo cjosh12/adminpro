@@ -1,0 +1,27 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSave()">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <shared-input-text
+      [labelTitle]="firstNameLabel"
+      [control]="$any(profileForm.get('first_name'))"
+    />
+    <shared-input-text
+    [labelTitle]="lastNameLabel"
+    [control]="$any(profileForm.get('last_name'))"
+  />
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <shared-input-text
+        [labelTitle]="emailLabel"
+        [control]="$any(profileForm.get('email'))"
+      />
+    </div>
+    <div class="mt-16">
+      <shared-btn
+        [type]="'submit'"
+        [btnDisabled]="!this.profileForm.valid"
+        class="float-right"
+      >
+      Actualizar
+      </shared-btn>
+    </div>
+  </form>

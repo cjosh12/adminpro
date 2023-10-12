@@ -4,15 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
+import { SpinnerComponent } from '@shared/components/spinner/spinner.component';
+import { tokenInterceptor } from '@core/interceptors';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, HttpClientModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, HttpClientModule, SpinnerComponent],
+  providers: [provideHttpClient(withInterceptors([tokenInterceptor]))],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

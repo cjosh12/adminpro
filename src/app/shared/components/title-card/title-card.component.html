@@ -1,3 +1,12 @@
 <div class="card w-full p-6 bg-base-100 shadow-xl {{ topMargin }}">
-    <ng-content></ng-content>
+    <shared-subtitle class="{{ topSideButton ? 'inline-block' : '' }}">
+        {{ title }}
+        <div *ngIf="topSideButton" class="inline-block float-right">
+          {{ topSideButton }}
+        </div>
+      </shared-subtitle>
+      <div class="mt-2 divider"></div>
+      <div class="h-full w-full pb-6 bg-base-100">
+        <ng-content />
+      </div>
 </div>

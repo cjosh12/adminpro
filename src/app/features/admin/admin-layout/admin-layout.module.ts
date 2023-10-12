@@ -11,6 +11,7 @@ import {
   SidebarComponent
 } from './components';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ToastComponent } from '@shared/components';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     CommonModule,
     AdminLayoutRoutingModule,
-    FontAwesomeModule
-  ]
+    FontAwesomeModule,
+    ToastComponent,
+  ],
 })
 export class AdminLayoutModule { }

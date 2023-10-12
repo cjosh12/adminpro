@@ -1,3 +1,8 @@
 {
-    "exportall.config.folderListener": ["/src/app/features/auth"]
+    "exportall.config.folderListener": [
+      "/src/app/features/auth"
+    ],
+    "exportall.config.relExclusion": [
+      "/src/app/features/admin/pages/profile/services/profile.service.ts"
+    ]
   }
