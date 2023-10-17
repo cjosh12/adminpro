@@ -28,4 +28,4 @@ import { ToastComponent } from '@shared/components';
     ToastComponent,
   ],
 })
-export class AdminLayoutModule { }
+export class AdminLayoutModule {}

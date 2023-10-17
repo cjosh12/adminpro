@@ -13,8 +13,8 @@ const routes: Routes = [
         loadChildren: () => import('@features/admin').then(m => m.DashboardModule),
       },
       {
-        path: 'grafical',
-        loadChildren: () => import('@features/admin').then(m => m.GraficalModule),
+        path: 'animals',
+        loadChildren: () => import('@features/admin').then(m => m.AnimalsModule),
       },
       {
         path: 'progress',

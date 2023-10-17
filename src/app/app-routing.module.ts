@@ -6,7 +6,7 @@ const routes: Routes = [
     {
       path: '',
       canActivate: [publicGuard],
-        loadChildren:() => import('@features/public').then(m => m.PublicModule),
+      loadChildren:() => import('@features/public').then(m => m.PublicModule),
     },
     {
         path: 'dashboard',

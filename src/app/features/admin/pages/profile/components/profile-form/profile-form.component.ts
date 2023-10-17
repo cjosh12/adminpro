@@ -2,7 +2,7 @@ import { Component, DestroyRef, computed, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthService } from '@features/public';
-import { ProfileService } from '../../services/profile.service';
+import { ProfileService } from '../../../../services/profile.service';
 import { ToastService } from '@core/services';
 
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -37,7 +37,7 @@ export class ProfileFormComponent {
         .editProfile(this.profileForm.value, this.user()!.user_id)
         .pipe(takeUntilDestroyed(this.destroyRef))
         .subscribe({
-          next: ({ reply, message }) =>
+          next: ({  message }) =>
             this.toastService.show({
               color: 'success',
               message,

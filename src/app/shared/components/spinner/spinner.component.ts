@@ -12,7 +12,7 @@ import { SpinnerService } from '@core/services/spinner.service';
 export class SpinnerComponent {
   private spinnerService = inject(SpinnerService);
 
-  public finishedSpinnerCheck = computed(()=>{
+  public finishedSpinnerCheck = computed(() => {
     return this.spinnerService.isLoading()
   })
 }

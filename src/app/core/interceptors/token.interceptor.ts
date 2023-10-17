@@ -1,8 +1,9 @@
 import { HttpInterceptorFn } from '@angular/common/http';
-import { LocalStorageService } from '..';
 import { inject } from '@angular/core';
-import { SpinnerService } from '@core/services/spinner.service';
+
+
 import { finalize } from 'rxjs';
+import { LocalStorageService, SpinnerService } from '../services';
 
 export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
   const localStorageService = inject(LocalStorageService);
@@ -12,10 +13,11 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
 
   const token = localStorageService.getItem('token');
 
-  if(!token) return next(req).pipe(finalize(() => spinnerService.hide()));
+  if (!token) return next(req).pipe(finalize(() => spinnerService.hide()));
 
   const request = req.clone({
     headers: req.headers.set('Authorization', `Bearer ${token}`),
-  })
-  return next(request).pipe(finalize(()=> spinnerService.hide()));
+  });
+
+  return next(request).pipe(finalize(() => spinnerService.hide()));
 };

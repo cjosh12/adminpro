@@ -5,7 +5,7 @@ import { Injectable, computed, signal } from '@angular/core';
 })
 export class SpinnerService {
   private _isLoading = signal(false);
-  public isLoading = computed(()=> this._isLoading());
+  public isLoading = computed(() => this._isLoading());
 
   public show(){
     this._isLoading.set(true);
