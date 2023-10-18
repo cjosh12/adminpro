@@ -3,14 +3,14 @@ import { ValidationErrors } from '@angular/forms';
 
 @Directive({
   selector: '[customLabel]',
-  standalone: true
+  standalone: true,
 })
 export class CustomLabelDirective {
   private htmlElemnt?: ElementRef<HTMLElement>;
   private _color!:string;
   private _errors? :ValidationErrors | null;
 
-  private elementRef = inject(ElementRef)
+  private elementRef = inject(ElementRef<HTMLElement>);
   private render = inject(Renderer2);
 
   @Input()

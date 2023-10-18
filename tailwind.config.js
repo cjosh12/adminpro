@@ -17,6 +17,7 @@ module.exports = {
             "info": "#153E5B",                    
             "success": "#6DDDA9",                     
             "warning": "#BA300E",
+            error: "#D65151",
         }, 
         myDarktTheme: {
             "primary": "#BFA484",          
@@ -27,6 +28,7 @@ module.exports = {
             "info": "#005B5E",                    
             "success": "#6DDDA9",                     
             "warning": "#BA300E",
+            error: "#D65151",
         },
       },
     ],

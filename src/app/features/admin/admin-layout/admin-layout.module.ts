@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminLayoutRoutingModule } from './admin-layout-routing.module';
-
 import { AdminLayoutComponent } from './admin-layout.component';
 import {
+  BreadcrumsComponent,
   FooterComponent,
   HeaderComponent,
-  BreadcrumsComponent,
   SidebarComponent
 } from './components';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ToastComponent } from '@shared/components';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { ToastComponent } from '@shared/components';
     HeaderComponent,
     BreadcrumsComponent,
     SidebarComponent,
-    AdminLayoutComponent,
+    AdminLayoutComponent
   ],
   imports: [
     CommonModule,
@@ -28,4 +28,4 @@ import { ToastComponent } from '@shared/components';
     ToastComponent,
   ],
 })
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }

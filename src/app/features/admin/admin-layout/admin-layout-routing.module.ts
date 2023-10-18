@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { AdminLayoutComponent } from './admin-layout.component';
 
 const routes: Routes = [
@@ -23,7 +22,7 @@ const routes: Routes = [
       {
         path: 'user-profile',
         loadChildren: () => import('@features/admin').then(m => m.ProfileModule),
-      }
+      },
     ]
   }
 ];
