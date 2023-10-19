@@ -10,4 +10,12 @@
       [placeholder]="placeHolder"
       class="input input-bordered w-full"
     >
+    <label *ngIf="control.touched">
+      <span 
+      class="label-text-alt" 
+      customLabel 
+      [errors]="control.errors" 
+      [color]="'text-error'">
+      </span>
+    </label>
   </div>

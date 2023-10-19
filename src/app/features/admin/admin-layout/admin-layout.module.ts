@@ -19,7 +19,7 @@ import { ToastComponent } from '@shared/components';
     HeaderComponent,
     BreadcrumsComponent,
     SidebarComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
   ],
   imports: [
     CommonModule,

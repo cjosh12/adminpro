@@ -11,14 +11,13 @@ import { MyResponse } from '../models';
 export class ApiService {
   private apiUrl!: string;
 
-  // Inyección de dependencias
+  //Inyeccion de dependencias
   private httpClient = inject(HttpClient);
 
   constructor() {
-    this.apiUrl = environment.api;
+    this.apiUrl = environment.api; 
   }
-
-  // Métodos globales para las peticiones HTTP (GET, POST, PATCH, DELETE)
+  //Metodos Globales para las peticiones HTTP(GET POST PATCH DELETE )
   getAll<T>(path: string, headers?: HttpHeaders): Observable<MyResponse<T>> {
     return this.httpClient.get<MyResponse<T>>(`${this.apiUrl}/${path}`, { headers });
   }
@@ -26,7 +25,7 @@ export class ApiService {
   getById<T>(path: string, id: number | string): Observable<MyResponse<T>> {
     return this.httpClient.get<MyResponse<T>>(`${this.apiUrl}/${path}/${id}`);
   }
-
+  //post creacion
   store<T>(path: string, body: object): Observable<MyResponse<T>> {
     return this.httpClient.post<MyResponse<T>>(`${this.apiUrl}/${path}`,body);
   }
