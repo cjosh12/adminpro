@@ -1,6 +1,8 @@
 import { Component, computed, effect, inject } from "@angular/core";
 import { AuthService } from "./features";
 import { Router } from "@angular/router";
+import { Token } from "@angular/compiler";
+import { tokenInterceptor } from "./core";
 
 @Component({
     selector: 'app-root',
@@ -22,7 +24,7 @@ export class AppComponent {
                 return;
 
             case 'authenticated':
-                this.router.navigateByUrl('/dashboard');
+
                 return;
 
             case 'noAuthenticated':

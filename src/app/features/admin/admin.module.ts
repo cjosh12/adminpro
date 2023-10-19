@@ -2,9 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
+import { BiomesComponent } from './pages/biomes/biomes.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    BiomesComponent
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule

@@ -1,4 +1,4 @@
-import { Biomes } from "./biome.model";
+import { Biome } from "./biome.model";
 import { Diets } from "./diet.model";
 
 
@@ -9,6 +9,6 @@ export interface Species {
     scientific_name: string;
     created_at:      string;
     updated_at:      string;
-    biome:           Biomes;
+    biome:           Biome;
     diets:           Diets[];
 }

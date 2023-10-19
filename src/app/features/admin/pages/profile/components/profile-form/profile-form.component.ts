@@ -45,7 +45,6 @@ export class ProfileFormComponent {
               duration: 4000,
             }),
           error: (message) => {
-            console.log(message);
             this.toastService.show({
               color: 'error',
               message,

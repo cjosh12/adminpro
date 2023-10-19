@@ -1,4 +1,4 @@
-export interface Biomes {
+export interface Biome {
     biome_id:   string;
     name:       string;
     image_url:  string;

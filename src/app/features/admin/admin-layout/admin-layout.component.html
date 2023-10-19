@@ -1,11 +1,11 @@
 <div class="drawer drawer-mobile">
-    <input for="left-sidebar-drawer" type="checkbox" class="drawer-toggle" />
-    <div class="drawer-content flex flex-col">
-      <admin-header />
-      <main class="flex-1 overflow-y-auto pt-8 px-6 bg-base-200">
-        <router-outlet />
-        <shared-toast />
-      </main>
-    </div>
-    <admin-sidebar />
+  <input id="left-sidebar-drawer" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content flex flex-col">
+    <admin-header />
+    <main class="flex-1 overflow-y-auto pt-8 px-6 bg-base-200">
+      <router-outlet />
+      <shared-toast />
+    </main>
   </div>
+  <admin-sidebar />
+</div>
