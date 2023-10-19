@@ -1,30 +1,27 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { ToastService } from '@core/services';
-import { Biome } from '@features/admin/models';
-import { BiomeService } from '@features/admin/services';
+import { Diets } from '@features/admin/models';
+import { DietsService } from '@features/admin/services';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
-  selector: 'admin-biomes',
-  templateUrl: './biomes.component.html',
-  styles: []
+  selector: 'admin-diets',
+  templateUrl: './diets.component.html',
+  styles: [],
 })
-export class  BiomesComponent implements OnInit {
-
-  private biomeService = inject(BiomeService);
+export class DietsComponent implements OnInit {
+  private dietsService = inject(DietsService);
   private toastService = inject(ToastService);
-
-  public biomes = signal<Biome[]>([]);
+  public diets = signal<Diets[]>([]);
 
   ngOnInit(): void {
-      this.getBiomes();
+    this.getDiets();
   }
-
-  private getBiomes(){
-    this.biomeService.getBiomes().subscribe({
+  private getDiets() {
+    this.dietsService.getDiets().subscribe({
       next: ({statusCode, reply, message}) => {
         if (statusCode === 200){ 
-        this.biomes.set(reply);
+        this.diets.set(reply);
       }else{
         this.toastService.show({
           color: 'error',
@@ -44,5 +41,4 @@ export class  BiomesComponent implements OnInit {
       },
     });
   }
-  
 }
