@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BiomesComponent } from './biomes.component';
 
 const routes: Routes = [
-  { path: '', component: BiomesComponent }
+  {path: '', component:BiomesComponent},
 ];
 
 @NgModule({

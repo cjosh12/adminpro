@@ -1,0 +1,17 @@
+<h2>{{animal() ? 'Editar' : 'Crear'}} Animal</h2>
+<form [formGroup]="animalForm" >
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <shared-input-text [labelTitle]="nameLabel" [control]="$any(animalForm.get('name'))" />
+    <shared-input-text [labelTitle]="ageLabel" [control]="$any(animalForm.get('age'))" />
+    <shared-input-text [labelTitle]="genderLabel" [control]="$any(animalForm.get('gender'))" />
+    <shared-input-text [labelTitle]="arrivalLabel" [control]="$any(animalForm.get('arrival'))" />
+    <shared-input-text [labelTitle]="health_conditionLabel" [control]="$any(animalForm.get('health_condition'))" />
+    <shared-input-text [labelTitle]="speciesLabel" [control]="$any(animalForm.get('species'))" />
+    <shared-input-text [labelTitle]="update_atLabel" [control]="$any(animalForm.get('updated_at'))" />
+  </div>
+  <div class="mt-16">
+    <shared-btn [type]="'submit'" [btnDisabled]="!this.animalForm.valid" class="float-right">
+      {{animal() ? 'Editar' : 'Crear'}}
+    </shared-btn>
+  </div>
+</form>

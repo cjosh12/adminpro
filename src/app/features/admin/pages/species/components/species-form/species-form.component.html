@@ -1,0 +1,17 @@
+<h2>{{specie() ? 'Editar' : 'Crear'}} Especie</h2>
+<form [formGroup]="specieForm" >
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <shared-input-text [labelTitle]="nameLabel" [control]="$any(specieForm.get('name'))" />
+    <shared-input-text [labelTitle]="descriptionLabel" [control]="$any(specieForm.get('description'))" />
+    <shared-input-text [labelTitle]="scientificLabel" [control]="$any(specieForm.get('scientific_name'))" />
+    <shared-input-text [labelTitle]="createdLabel" [control]="$any(specieForm.get('created_at'))" />
+    <shared-input-text [labelTitle]="updatedLabel" [control]="$any(specieForm.get('updated_at'))" />
+    <shared-input-text [labelTitle]="biomeLabel" [control]="$any(specieForm.get('biome'))" />
+    <shared-input-text [labelTitle]="dietLabel" [control]="$any(specieForm.get('diets'))" />
+  </div>
+  <div class="mt-16">
+    <shared-btn [type]="'submit'" [btnDisabled]="!this.specieForm.valid" class="float-right">
+      {{specie() ? 'Editar' : 'Crear'}}
+    </shared-btn>
+  </div>
+</form>

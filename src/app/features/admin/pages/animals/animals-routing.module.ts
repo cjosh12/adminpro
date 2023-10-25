@@ -3,8 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AnimalsComponent } from './animals.component';
 
 
+
 const routes: Routes = [
-  { path: '', component: AnimalsComponent }
+  { 
+    path: '', 
+    component: AnimalsComponent },
 ];
 
 @NgModule({

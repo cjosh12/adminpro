@@ -2,7 +2,9 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { ToastService } from '@core/services';
 import { Species } from '@features/admin/models';
 import { SpeciesService } from '@features/admin/services';
-import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
+import { faCircleXmark, faEllipsis, faPencil, faSkullCrossbones } from '@fortawesome/free-solid-svg-icons';
+
+
 
 @Component({
   selector: 'admin-species',
@@ -10,13 +12,23 @@ import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
   styles: []
 })
 export class SpeciesComponent implements OnInit {
+  
   private speciesService = inject(SpeciesService);
   private toastService = inject(ToastService);
+
+  public faEllipsis = signal(faEllipsis);
+  public faPencil = signal(faPencil);
+  public faSkullCrossbones = signal(faSkullCrossbones);
   public species = signal<Species[]>([]);
 
   ngOnInit(): void {
     this.getSpecies();
   }
+
+  public setSpecie(specie:Species){
+    this.speciesService.setSpecie(specie);
+  }
+
   private getSpecies() {
     this.speciesService.getSpecies().subscribe({
       next: ({statusCode, reply, message}) => {
