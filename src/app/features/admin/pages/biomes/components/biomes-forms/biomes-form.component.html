@@ -3,8 +3,6 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <shared-input-text [labelTitle]="nameLabel" [control]="$any(biomeForm.get('name'))" />
     <shared-input-text [labelTitle]="imagenLabel" [control]="$any(biomeForm.get('image_url'))" />
-    <shared-input-text [labelTitle]="createdLabel" [control]="$any(biomeForm.get('created_at'))" />
-    <shared-input-text [labelTitle]="updatedLabel" [control]="$any(biomeForm.get('updated_at'))" />
   </div>
   <div class="mt-16">
     <shared-btn [type]="'submit'" [btnDisabled]="!this.biomeForm.valid" class="float-right">

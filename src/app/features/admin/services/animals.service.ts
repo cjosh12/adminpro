@@ -14,6 +14,13 @@ export class AnimalsService {
   
   public currentAnimal = computed(() => this._currentAnimal());
 
+  createAnimal(animalForm:AnimalForm){
+    const {...animalbody}=animalForm
+    return this.apiService
+      .store<AnimalForm>('animals', animalbody)
+      .pipe(catchError((error) => throwError(() => error.error.message)));
+  }
+
   getAnimal(animal_id:string): Observable<MyResponse<Animals>>{
     return this.apiService.getById<Animals>("animals", animal_id)
   }
@@ -34,7 +41,7 @@ export class AnimalsService {
     .pipe(catchError((error) => throwError(() => error.error.message)));
   }
 
-  setAnimal(animal: Animals){
+  setAnimal(animal: Animals | null){
     this._currentAnimal.set(animal);
   }
 }

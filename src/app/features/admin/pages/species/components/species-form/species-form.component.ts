@@ -1,5 +1,5 @@
 import { Component, computed, effect, inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SpeciesService } from '@features/admin/services';
 
 @Component({
@@ -25,23 +25,19 @@ export class SpeciesFormComponent {
   public buildFormEffect = effect(() => {
     if(this.specie()){
       this.specieForm = this.fb.group({
-        name: [this.specie()!.name],
-        description: [this.specie()!.description],
-        scientific_name: [this.specie()!.scientific_name],
-        created_at: [this.specie()!.created_at],
-        updated_at: [this.specie()!.updated_at],
-        biome: [this.specie()!.biome],
-        diets: [this.specie()!.diets],
+        name: [this.specie()!.name, [Validators.required]],
+        description: [this.specie()!.description, [Validators.required]],
+        scientific_name: [this.specie()!.scientific_name, [Validators.required]],
+        biome: [this.specie()!.biome, [Validators.required]],
+        diets: [this.specie()!.diets, [Validators.required]],
       })
     }else{
       this.specieForm = this.fb.group({
-        name: [''],
-        description: [''],
-        scientific_name: [''],
-        created_at: [''],
-        updated_at: [''],
-        biome: [''],
-        diets: [''],
+        name: ['',[Validators.required]],
+        description: ['',[Validators.required]],
+        scientific_name: ['',[Validators.required]],
+        biome: ['',[Validators.required]],
+        diets: ['',[Validators.required]],
       })
     }
   })

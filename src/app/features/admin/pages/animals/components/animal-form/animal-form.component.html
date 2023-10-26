@@ -1,15 +1,46 @@
 <h2>{{animal() ? 'Editar' : 'Crear'}} Animal</h2>
-<form [formGroup]="animalForm" >
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<form [formGroup]="animalForm" (ngSubmit)="onSave()"  >
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-around">
     <shared-input-text [labelTitle]="nameLabel" [control]="$any(animalForm.get('name'))" />
-    <shared-input-text [labelTitle]="ageLabel" [control]="$any(animalForm.get('age'))" />
-    <shared-input-text [labelTitle]="genderLabel" [control]="$any(animalForm.get('gender'))" />
+    <shared-input-text [labelTitle]="ageLabel" [type]="'number'" [control]="$any(animalForm.get('age'))" />
+    <div justify-around intems center><label>Genero</label>
+      <select class="select select-bordered w-full max-w-xs" formControlName="gender">
+        <option disabled selected>Genero</option>
+        <option value="M">Masculino</option>
+        <option value="F">Femenino</option>
+      </select>
+    </div>
     <shared-input-text [labelTitle]="arrivalLabel" [control]="$any(animalForm.get('arrival'))" />
-    <shared-input-text [labelTitle]="health_conditionLabel" [control]="$any(animalForm.get('health_condition'))" />
-    <shared-input-text [labelTitle]="speciesLabel" [control]="$any(animalForm.get('species'))" />
-    <shared-input-text [labelTitle]="update_atLabel" [control]="$any(animalForm.get('updated_at'))" />
+    <div justify-around items-center><label>Condición de Salud</label>
+      <select class="select select-bordered w-full max-w-xs" formControlName="health_condition">
+        <option disabled selected>Salud</option>
+        <option value="healthy">Sano</option>
+        <option value="sick">enfermo</option>
+        <option value="injured">lastimado</option>
+      </select>
+    </div>
+    <div justify-around items-center><label>Estado de exhibición</label>
+      <select class="select select-bordered w-full max-w-xs" formControlName="exhibit_status">
+        <option disabled selected>Esta en exhibición?</option>
+        <option value="exhibit">Si</option>
+        <option value="quarantine">No</option>
+      </select>
+    </div>
+    <div justify-around items-center>Especies
+      <select class=" select select-bordered w-full max-w-xs" formControlName="species_id">
+        <option disabled selected>Seleccionar</option>
+        <option [value]="specie.species_id" *ngFor="let specie of species()">{{specie.name}}</option>
+      </select>
+    </div>
   </div>
-  <div class="mt-16">
+  <div class="mt-16 flex justify-around items-center">
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn" (click)="setNull()">
+          Cerrar
+        </button>
+      </form>
+    </div>
     <shared-btn [type]="'submit'" [btnDisabled]="!this.animalForm.valid" class="float-right">
       {{animal() ? 'Editar' : 'Crear'}}
     </shared-btn>

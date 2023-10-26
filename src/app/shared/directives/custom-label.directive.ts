@@ -77,8 +77,12 @@ export class CustomLabelDirective {
         case '/(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^.*/_-&+=!]).{8,}$/':
           message =
             'El campo debe tener al menos una mayúscula, una minúscula, un número y un carácter especial';
-          break;
+        break;
 
+        case '^(http(s)?:\\/\\/)?([\\w-]+\\.)+[\\w-]+(\\/[\\w- ./?%&=]*)?$':
+            message =
+            'el campo debe ser una Url'
+        break;
         default:
           break;
       }
@@ -86,5 +90,10 @@ export class CustomLabelDirective {
       this.htmlElemnt.nativeElement.innerText = message;
       return;
     }
+    if(errors.includes('min')){
+      const {min} = this._errors['min'];
+      this.htmlElemnt.nativeElement.innerText = `Este dato no pudede ser menor a ${min}`;
+    }
+
   }
 }
